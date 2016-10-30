@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TSc-BH-afV">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reveal View Controller-->
+        <scene sceneID="rnT-uE-QtD">
+            <objects>
+                <viewController id="TSc-BH-afV" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rg3-Wk-9vy"/>
+                        <viewControllerLayoutGuide type="bottom" id="XSm-P5-y0F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uFf-FN-hCF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <segue destination="Bfw-r4-45i" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1dY-WB-Zdd"/>
+                        <segue destination="JbA-Hf-ZYO" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="QzI-HA-eDq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ke5-k2-lBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389" y="623"/>
+        </scene>
+        <!--News Raft RootVC-->
+        <scene sceneID="FmM-Kd-V92">
+            <objects>
+                <tableViewController id="kva-pe-qVU" customClass="MMNewsRaftRootVC" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PnY-Hg-DeA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FWC-5d-fft">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWC-5d-fft" id="jaO-q1-rcP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kva-pe-qVU" id="3ce-50-Bg6"/>
+                            <outlet property="delegate" destination="kva-pe-qVU" id="s8j-D5-vNJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="P9f-K8-BjT">
+                        <barButtonItem key="leftBarButtonItem" image="MMMenuIcon" id="MQG-7S-6zM">
+                            <connections>
+                                <action selector="mmMenuButtonAction:" destination="kva-pe-qVU" id="MmQ-cI-7PH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mmMenuButon" destination="MQG-7S-6zM" id="P1V-CT-KBS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZw-DN-TqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559" y="-104"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oQk-kv-JZC">
+            <objects>
+                <viewController id="hmu-rH-2Sp" customClass="ViewController" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTI-mq-RWP"/>
+                        <viewControllerLayoutGuide type="bottom" id="E2e-yO-6O3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kRK-Ks-a1O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="X0T-8w-nDL">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="46M-kB-J78"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <outlet property="menuButtonAction" destination="46M-kB-J78" id="t0j-Ok-2B3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m2N-Jb-PfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="482"/>
+        </scene>
+        <!--MenuTVC-->
+        <scene sceneID="F97-l5-n3I">
+            <objects>
+                <tableViewController id="Bfw-r4-45i" customClass="MMMenuTVC" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqQ-Ib-MbV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MMMenuCellReuseIdentifier" id="TrV-Z5-eEF" userLabel="MMMenuCell" customClass="MMMenuCell" customModule="MMNewsRaft" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TrV-Z5-eEF" id="xct-7Q-5nZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MMMenuIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2dA-UU-eLE">
+                                            <rect key="frame" x="7" y="11" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="fmd-Wt-Noc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmt-AU-4m7">
+                                            <rect key="frame" x="35" y="10" width="270" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="leading" secondItem="2dA-UU-eLE" secondAttribute="trailing" constant="8" symbolic="YES" id="46E-Ky-Ys1"/>
+                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="centerY" secondItem="Jmt-AU-4m7" secondAttribute="centerY" id="8so-JL-lOU"/>
+                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="centerY" secondItem="xct-7Q-5nZ" secondAttribute="centerY" id="FDv-ym-J5L"/>
+                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="top" secondItem="xct-7Q-5nZ" secondAttribute="topMargin" constant="2" id="GvZ-kx-llw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Jmt-AU-4m7" secondAttribute="trailing" constant="7" id="IRH-dz-3BM"/>
+                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="bottom" secondItem="Jmt-AU-4m7" secondAttribute="bottom" id="Inz-6P-wPQ"/>
+                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="leading" secondItem="xct-7Q-5nZ" secondAttribute="leadingMargin" constant="-1" id="UEJ-VG-cV5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mmMenuImageView" destination="2dA-UU-eLE" id="XRu-Qp-oTT"/>
+                                    <outlet property="mmMenuTextLabel" destination="Jmt-AU-4m7" id="ZJ6-gb-yb4"/>
+                                    <segue destination="JbA-Hf-ZYO" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ZxI-Jj-9oa"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Bfw-r4-45i" id="HLy-es-v5r"/>
+                            <outlet property="delegate" destination="Bfw-r4-45i" id="zXT-TJ-8e1"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujI-lb-XwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="915"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="har-Dr-IRM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JbA-Hf-ZYO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FiG-Hf-bwv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.050980392159999999" green="0.25490196079999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kva-pe-qVU" kind="relationship" relationship="rootViewController" id="kYq-yU-dSz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2w9-E9-8Nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MMMenuIcon" width="35" height="35"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZxI-Jj-9oa"/>
+    </inferredMetricsTieBreakers>
+</document>
