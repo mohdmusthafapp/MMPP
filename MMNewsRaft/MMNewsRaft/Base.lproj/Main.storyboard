@@ -22,30 +22,57 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <segue destination="Bfw-r4-45i" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1dY-WB-Zdd"/>
+                        <segue destination="IC2-TQ-Pht" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1dY-WB-Zdd"/>
                         <segue destination="JbA-Hf-ZYO" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="QzI-HA-eDq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke5-k2-lBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389" y="623"/>
+            <point key="canvasLocation" x="347" y="-247"/>
         </scene>
         <!--News Raft RootVC-->
         <scene sceneID="FmM-Kd-V92">
             <objects>
                 <tableViewController id="kva-pe-qVU" customClass="MMNewsRaftRootVC" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PnY-Hg-DeA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="PnY-Hg-DeA">
+                        <rect key="frame" x="0.0" y="44" width="320" height="392"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FWC-5d-fft">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="100" id="FWC-5d-fft" userLabel="MMCardCell" customClass="MMCardCell" customModule="MMNewsRaft" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWC-5d-fft" id="jaO-q1-rcP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-W2-Npf">
+                                            <rect key="frame" x="8" y="24" width="50" height="50"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUr-bO-9YL">
+                                            <rect key="frame" x="62" y="12" width="241" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="3Lr-P7-vbT"/>
+                                                <constraint firstAttribute="width" constant="241" id="uyL-bs-naO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                            <color key="textColor" red="0.050980392159999999" green="0.23921568630000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="H1C-W2-Npf" firstAttribute="top" secondItem="jaO-q1-rcP" secondAttribute="topMargin" constant="16" id="1g0-TG-O4f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BUr-bO-9YL" secondAttribute="trailing" constant="9" id="CSp-QZ-8gS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="H1C-W2-Npf" secondAttribute="bottom" constant="17.5" id="bQP-Be-Wcw"/>
+                                        <constraint firstItem="BUr-bO-9YL" firstAttribute="top" secondItem="jaO-q1-rcP" secondAttribute="topMargin" constant="4" id="fh7-6h-70m"/>
+                                        <constraint firstItem="H1C-W2-Npf" firstAttribute="leading" secondItem="jaO-q1-rcP" secondAttribute="leadingMargin" id="ioB-0Y-sbf"/>
+                                        <constraint firstItem="BUr-bO-9YL" firstAttribute="leading" secondItem="H1C-W2-Npf" secondAttribute="trailing" constant="4" id="ox0-9M-uBp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardImageView" destination="H1C-W2-Npf" id="9Cn-xR-rgq"/>
+                                    <outlet property="cardTextLabel" destination="BUr-bO-9YL" id="dJY-5J-URK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,75 +94,54 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZw-DN-TqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="-104"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="oQk-kv-JZC">
-            <objects>
-                <viewController id="hmu-rH-2Sp" customClass="ViewController" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oTI-mq-RWP"/>
-                        <viewControllerLayoutGuide type="bottom" id="E2e-yO-6O3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kRK-Ks-a1O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="X0T-8w-nDL">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="46M-kB-J78"/>
-                    </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="480"/>
-                    <connections>
-                        <outlet property="menuButtonAction" destination="46M-kB-J78" id="t0j-Ok-2B3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m2N-Jb-PfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1646" y="482"/>
+            <point key="canvasLocation" x="1246" y="-258"/>
         </scene>
         <!--MenuTVC-->
         <scene sceneID="F97-l5-n3I">
             <objects>
                 <tableViewController id="Bfw-r4-45i" customClass="MMMenuTVC" customModule="MMNewsRaft" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqQ-Ib-MbV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqQ-Ib-MbV">
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MMMenuCellReuseIdentifier" id="TrV-Z5-eEF" userLabel="MMMenuCell" customClass="MMMenuCell" customModule="MMNewsRaft" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MMMenuCellReuseIdentifier" rowHeight="46" id="TrV-Z5-eEF" userLabel="MMMenuCell" customClass="MMMenuCell" customModule="MMNewsRaft" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TrV-Z5-eEF" id="xct-7Q-5nZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MMMenuIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2dA-UU-eLE">
-                                            <rect key="frame" x="7" y="11" width="20" height="20"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upU-Op-g10">
+                                            <rect key="frame" x="9" y="17" width="12" height="12"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="fmd-Wt-Noc"/>
+                                                <constraint firstAttribute="width" constant="12" id="6y9-uZ-lz5"/>
+                                                <constraint firstAttribute="height" constant="12" id="P1P-yc-bzY"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="nFl-B9-krD"/>
                                             </constraints>
-                                        </imageView>
+                                            <state key="normal" backgroundImage="greenRoundICon.png">
+                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmt-AU-4m7">
-                                            <rect key="frame" x="35" y="10" width="270" height="21"/>
+                                            <rect key="frame" x="27" y="13" width="270" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="leading" secondItem="2dA-UU-eLE" secondAttribute="trailing" constant="8" symbolic="YES" id="46E-Ky-Ys1"/>
-                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="centerY" secondItem="Jmt-AU-4m7" secondAttribute="centerY" id="8so-JL-lOU"/>
-                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="centerY" secondItem="xct-7Q-5nZ" secondAttribute="centerY" id="FDv-ym-J5L"/>
-                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="top" secondItem="xct-7Q-5nZ" secondAttribute="topMargin" constant="2" id="GvZ-kx-llw"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Jmt-AU-4m7" secondAttribute="trailing" constant="7" id="IRH-dz-3BM"/>
-                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="bottom" secondItem="Jmt-AU-4m7" secondAttribute="bottom" id="Inz-6P-wPQ"/>
-                                        <constraint firstItem="2dA-UU-eLE" firstAttribute="leading" secondItem="xct-7Q-5nZ" secondAttribute="leadingMargin" constant="-1" id="UEJ-VG-cV5"/>
+                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="leading" secondItem="upU-Op-g10" secondAttribute="trailing" constant="6" id="0sD-Mb-k7V"/>
+                                        <constraint firstItem="Jmt-AU-4m7" firstAttribute="top" secondItem="xct-7Q-5nZ" secondAttribute="topMargin" constant="5" id="5zd-O7-NkV"/>
+                                        <constraint firstItem="upU-Op-g10" firstAttribute="centerY" secondItem="xct-7Q-5nZ" secondAttribute="centerY" id="hLw-ob-7Pi"/>
+                                        <constraint firstItem="upU-Op-g10" firstAttribute="centerY" secondItem="Jmt-AU-4m7" secondAttribute="centerY" id="hV0-CT-hHS"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Jmt-AU-4m7" secondAttribute="trailing" constant="15" id="jwv-YK-NcH"/>
+                                        <constraint firstItem="upU-Op-g10" firstAttribute="top" secondItem="xct-7Q-5nZ" secondAttribute="topMargin" constant="9" id="yuO-bJ-vWw"/>
+                                        <constraint firstItem="upU-Op-g10" firstAttribute="leading" secondItem="xct-7Q-5nZ" secondAttribute="leadingMargin" constant="1" id="zub-9y-4df"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="mmMenuImageView" destination="2dA-UU-eLE" id="XRu-Qp-oTT"/>
                                     <outlet property="mmMenuTextLabel" destination="Jmt-AU-4m7" id="ZJ6-gb-yb4"/>
                                     <segue destination="JbA-Hf-ZYO" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ZxI-Jj-9oa"/>
                                 </connections>
@@ -147,23 +153,34 @@
                             <outlet property="delegate" destination="Bfw-r4-45i" id="zXT-TJ-8e1"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="hWk-sb-nnd">
+                        <barButtonItem key="leftBarButtonItem" title="News Raft" id="Ffc-v9-e41">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujI-lb-XwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="915"/>
+            <point key="canvasLocation" x="347" y="1074"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="har-Dr-IRM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JbA-Hf-ZYO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="JbA-Hf-ZYO" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FiG-Hf-bwv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FiG-Hf-bwv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.050980392159999999" green="0.25490196079999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.050980392156862744" green="0.23921568627450979" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -172,13 +189,37 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2w9-E9-8Nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="114"/>
+            <point key="canvasLocation" x="772" y="-258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OR6-KU-hqd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IC2-TQ-Pht" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="v40-PU-hk7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.050980392159999999" green="0.23921568630000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bfw-r4-45i" kind="relationship" relationship="rootViewController" id="CY1-es-fl1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpk-Wm-oRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347" y="431"/>
         </scene>
     </scenes>
     <resources>
-        <image name="MMMenuIcon" width="35" height="35"/>
+        <image name="MMMenuIcon" width="25" height="25"/>
+        <image name="demo" width="1200" height="630"/>
+        <image name="greenRoundICon.png" width="42" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZxI-Jj-9oa"/>
+        <segue reference="QzI-HA-eDq"/>
     </inferredMetricsTieBreakers>
 </document>

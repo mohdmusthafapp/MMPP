@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9595E0651DC5AC5400D68825 /* MMNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0641DC5AC5400D68825 /* MMNavigationItem.swift */; };
+		9595E0671DC5AC7400D68825 /* MMNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0661DC5AC7400D68825 /* MMNavigationBar.swift */; };
+		9595E0691DC5ACC700D68825 /* MMMenuTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9595E0681DC5ACC700D68825 /* MMMenuTopView.xib */; };
+		9595E06F1DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E06E1DC5AE9C00D68825 /* MMMenuTopView.swift */; };
+		9595E0701DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E06E1DC5AE9C00D68825 /* MMMenuTopView.swift */; };
+		9595E0711DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E06E1DC5AE9C00D68825 /* MMMenuTopView.swift */; };
+		9595E0781DC5C7F800D68825 /* MMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0771DC5C7F800D68825 /* MMServiceRequest.swift */; };
+		9595E0791DC5C7F800D68825 /* MMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0771DC5C7F800D68825 /* MMServiceRequest.swift */; };
+		9595E07A1DC5C7F800D68825 /* MMServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0771DC5C7F800D68825 /* MMServiceRequest.swift */; };
+		9595E07C1DC5D26900D68825 /* MMServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E07B1DC5D26900D68825 /* MMServiceCall.swift */; };
+		9595E07D1DC5D26900D68825 /* MMServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E07B1DC5D26900D68825 /* MMServiceCall.swift */; };
+		9595E07E1DC5D26900D68825 /* MMServiceCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E07B1DC5D26900D68825 /* MMServiceCall.swift */; };
+		9595E0801DC5F4D100D68825 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9595E07F1DC5F4D100D68825 /* File.txt */; };
+		9595E0811DC5F4D100D68825 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9595E07F1DC5F4D100D68825 /* File.txt */; };
+		9595E0821DC5F4D100D68825 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9595E07F1DC5F4D100D68825 /* File.txt */; };
+		9595E0841DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0831DC6042600D68825 /* MMNewsRaftServiceHelper.swift */; };
+		9595E0851DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0831DC6042600D68825 /* MMNewsRaftServiceHelper.swift */; };
+		9595E0861DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0831DC6042600D68825 /* MMNewsRaftServiceHelper.swift */; };
+		9595E0881DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0871DC604CC00D68825 /* MMNewsRaftSourceModel.swift */; };
+		9595E0891DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0871DC604CC00D68825 /* MMNewsRaftSourceModel.swift */; };
+		9595E08A1DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0871DC604CC00D68825 /* MMNewsRaftSourceModel.swift */; };
+		9595E08D1DC61C6000D68825 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9595E08C1DC61C6000D68825 /* demo.jpg */; };
+		9595E08E1DC61C6000D68825 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9595E08C1DC61C6000D68825 /* demo.jpg */; };
+		9595E08F1DC61C6000D68825 /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9595E08C1DC61C6000D68825 /* demo.jpg */; };
+		9595E0911DC61D0100D68825 /* MMCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0901DC61D0100D68825 /* MMCardCell.swift */; };
+		9595E0921DC61D0100D68825 /* MMCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0901DC61D0100D68825 /* MMCardCell.swift */; };
+		9595E0931DC61D0100D68825 /* MMCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595E0901DC61D0100D68825 /* MMCardCell.swift */; };
 		95DF64E21DC5000200C070C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF64E11DC5000200C070C2 /* AppDelegate.swift */; };
 		95DF64E41DC5000200C070C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF64E31DC5000200C070C2 /* ViewController.swift */; };
 		95DF64E71DC5000200C070C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DF64E51DC5000200C070C2 /* Main.storyboard */; };
@@ -47,6 +74,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9595E0641DC5AC5400D68825 /* MMNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMNavigationItem.swift; sourceTree = "<group>"; };
+		9595E0661DC5AC7400D68825 /* MMNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMNavigationBar.swift; sourceTree = "<group>"; };
+		9595E0681DC5ACC700D68825 /* MMMenuTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMMenuTopView.xib; sourceTree = "<group>"; };
+		9595E06E1DC5AE9C00D68825 /* MMMenuTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMMenuTopView.swift; sourceTree = "<group>"; };
+		9595E0771DC5C7F800D68825 /* MMServiceRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMServiceRequest.swift; sourceTree = "<group>"; };
+		9595E07B1DC5D26900D68825 /* MMServiceCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMServiceCall.swift; sourceTree = "<group>"; };
+		9595E07F1DC5F4D100D68825 /* File.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
+		9595E0831DC6042600D68825 /* MMNewsRaftServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMNewsRaftServiceHelper.swift; sourceTree = "<group>"; };
+		9595E0871DC604CC00D68825 /* MMNewsRaftSourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMNewsRaftSourceModel.swift; sourceTree = "<group>"; };
+		9595E08C1DC61C6000D68825 /* demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demo.jpg; sourceTree = "<group>"; };
+		9595E0901DC61D0100D68825 /* MMCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMCardCell.swift; sourceTree = "<group>"; };
 		95DF64DE1DC5000200C070C2 /* MMNewsRaft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMNewsRaft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DF64E11DC5000200C070C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DF64E31DC5000200C070C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +134,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9512B1F31DC64C050075B90C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9512B1F51DC64C3E0075B90C /* Cell */,
+				95DF64E31DC5000200C070C2 /* ViewController.swift */,
+				95DF65291DC5183200C070C2 /* MMNewsRaftRootVC.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9512B1F41DC64C210075B90C /* HelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				9595E0871DC604CC00D68825 /* MMNewsRaftSourceModel.swift */,
+				9595E0831DC6042600D68825 /* MMNewsRaftServiceHelper.swift */,
+			);
+			name = HelperClass;
+			sourceTree = "<group>";
+		};
+		9512B1F51DC64C3E0075B90C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9595E0901DC61D0100D68825 /* MMCardCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9595E0761DC5BE8E00D68825 /* NaviVC */ = {
+			isa = PBXGroup;
+			children = (
+				9595E0641DC5AC5400D68825 /* MMNavigationItem.swift */,
+				9595E0661DC5AC7400D68825 /* MMNavigationBar.swift */,
+			);
+			name = NaviVC;
+			sourceTree = "<group>";
+		};
+		9595E08B1DC6183A00D68825 /* MMNewsService */ = {
+			isa = PBXGroup;
+			children = (
+				9595E0771DC5C7F800D68825 /* MMServiceRequest.swift */,
+				9595E07B1DC5D26900D68825 /* MMServiceCall.swift */,
+			);
+			name = MMNewsService;
+			sourceTree = "<group>";
+		};
 		95DF64D51DC5000200C070C2 = {
 			isa = PBXGroup;
 			children = (
@@ -119,10 +202,12 @@
 		95DF64E01DC5000200C070C2 /* MMNewsRaft */ = {
 			isa = PBXGroup;
 			children = (
+				9512B1F41DC64C210075B90C /* HelperClass */,
+				9512B1F31DC64C050075B90C /* ViewControllers */,
+				9595E08B1DC6183A00D68825 /* MMNewsService */,
+				9595E0761DC5BE8E00D68825 /* NaviVC */,
 				95DF65271DC517EC00C070C2 /* AppDelegate */,
 				95DF65261DC517D800C070C2 /* SWRevealVC */,
-				95DF64E31DC5000200C070C2 /* ViewController.swift */,
-				95DF65291DC5183200C070C2 /* MMNewsRaftRootVC.swift */,
 				95DF65281DC5180A00C070C2 /* MMMenuVC */,
 				95DF64EB1DC5000200C070C2 /* Assets.xcassets */,
 				95DF652D1DC5184400C070C2 /* Storyboard */,
@@ -173,6 +258,10 @@
 			children = (
 				95DF65221DC512F000C070C2 /* MMMenuTVC.swift */,
 				95DF65331DC51B5C00C070C2 /* MMMenuCell.swift */,
+				9595E0681DC5ACC700D68825 /* MMMenuTopView.xib */,
+				9595E06E1DC5AE9C00D68825 /* MMMenuTopView.swift */,
+				9595E07F1DC5F4D100D68825 /* File.txt */,
+				9595E08C1DC61C6000D68825 /* demo.jpg */,
 			);
 			name = MMMenuVC;
 			sourceTree = "<group>";
@@ -300,9 +389,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595E0801DC5F4D100D68825 /* File.txt in Resources */,
 				95DF64EF1DC5000200C070C2 /* LaunchScreen.storyboard in Resources */,
 				95DF64EC1DC5000200C070C2 /* Assets.xcassets in Resources */,
 				95DF64E71DC5000200C070C2 /* Main.storyboard in Resources */,
+				9595E08D1DC61C6000D68825 /* demo.jpg in Resources */,
+				9595E0691DC5ACC700D68825 /* MMMenuTopView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595E08E1DC61C6000D68825 /* demo.jpg in Resources */,
+				9595E0811DC5F4D100D68825 /* File.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +411,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595E08F1DC61C6000D68825 /* demo.jpg in Resources */,
+				9595E0821DC5F4D100D68825 /* File.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,11 +425,19 @@
 			files = (
 				95DF652A1DC5183200C070C2 /* MMNewsRaftRootVC.swift in Sources */,
 				95DF64E41DC5000200C070C2 /* ViewController.swift in Sources */,
+				9595E0881DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */,
+				9595E0911DC61D0100D68825 /* MMCardCell.swift in Sources */,
+				9595E0651DC5AC5400D68825 /* MMNavigationItem.swift in Sources */,
 				95DF64E21DC5000200C070C2 /* AppDelegate.swift in Sources */,
 				95DF64EA1DC5000200C070C2 /* MMNewsRaft.xcdatamodeld in Sources */,
+				9595E06F1DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */,
+				9595E0841DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */,
 				95DF65171DC5003C00C070C2 /* SWRevealViewController.m in Sources */,
 				95DF65341DC51B5C00C070C2 /* MMMenuCell.swift in Sources */,
+				9595E0671DC5AC7400D68825 /* MMNavigationBar.swift in Sources */,
+				9595E07C1DC5D26900D68825 /* MMServiceCall.swift in Sources */,
 				95DF65231DC512F000C070C2 /* MMMenuTVC.swift in Sources */,
+				9595E0781DC5C7F800D68825 /* MMServiceRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +445,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595E0891DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */,
 				95DF65351DC51B5C00C070C2 /* MMMenuCell.swift in Sources */,
+				9595E0701DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */,
 				95DF64FA1DC5000200C070C2 /* MMNewsRaftTests.swift in Sources */,
 				95DF65241DC512F000C070C2 /* MMMenuTVC.swift in Sources */,
 				95DF652B1DC5183200C070C2 /* MMNewsRaftRootVC.swift in Sources */,
+				9595E07D1DC5D26900D68825 /* MMServiceCall.swift in Sources */,
+				9595E0791DC5C7F800D68825 /* MMServiceRequest.swift in Sources */,
+				9595E0921DC61D0100D68825 /* MMCardCell.swift in Sources */,
+				9595E0851DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */,
 				95DF65181DC5003C00C070C2 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,10 +463,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595E08A1DC604CC00D68825 /* MMNewsRaftSourceModel.swift in Sources */,
 				95DF65361DC51B5C00C070C2 /* MMMenuCell.swift in Sources */,
+				9595E0711DC5AE9C00D68825 /* MMMenuTopView.swift in Sources */,
 				95DF65051DC5000200C070C2 /* MMNewsRaftUITests.swift in Sources */,
 				95DF65251DC512F000C070C2 /* MMMenuTVC.swift in Sources */,
 				95DF652C1DC5183200C070C2 /* MMNewsRaftRootVC.swift in Sources */,
+				9595E07E1DC5D26900D68825 /* MMServiceCall.swift in Sources */,
+				9595E07A1DC5C7F800D68825 /* MMServiceRequest.swift in Sources */,
+				9595E0931DC61D0100D68825 /* MMCardCell.swift in Sources */,
+				9595E0861DC6042600D68825 /* MMNewsRaftServiceHelper.swift in Sources */,
 				95DF65191DC5003C00C070C2 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +699,7 @@
 				95DF650B1DC5000200C070C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95DF650C1DC5000200C070C2 /* Build configuration list for PBXNativeTarget "MMNewsRaftTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +708,7 @@
 				95DF650E1DC5000200C070C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95DF650F1DC5000200C070C2 /* Build configuration list for PBXNativeTarget "MMNewsRaftUITests" */ = {
 			isa = XCConfigurationList;
@@ -599,6 +717,7 @@
 				95DF65111DC5000200C070C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

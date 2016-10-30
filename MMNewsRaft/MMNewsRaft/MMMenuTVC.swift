@@ -10,14 +10,13 @@ import UIKit
 
 class MMMenuTVC: UITableViewController {
 
+    var menuSourceList = [MMNewsRaftSourceModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        menuSourceList = MMNewsRaftServiceHelper.getMMNewsRaftSourceList()!
+        let tableHeaderView = MMMenuTopView.instanceFromNib()
+        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: tableHeaderView), animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,21 +33,19 @@ class MMMenuTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return menuSourceList.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MMMenuCell {
         let cell =  getSecurityAnswerCell()
-
-
+        let sourceModel = menuSourceList[indexPath.row]
+        cell.mmMenuTextLabel!.text = sourceModel.source_code?.capitalizedString
         return cell
     }
  
     func getSecurityAnswerCell() -> MMMenuCell {
-        let cell =  tableView.dequeueReusableCellWithIdentifier(MMMenuCell.menuCellReuseIdentifier)as! MMMenuCell
-        cell.mmMenuTextLabel!.text = "Musthafa"
-        
+        let cell =  tableView.dequeueReusableCellWithIdentifier(MMMenuCell.menuCellReuseIdentifier)as! MMMenuCell        
         return cell;
     }
 

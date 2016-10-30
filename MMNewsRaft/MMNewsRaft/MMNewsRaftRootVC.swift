@@ -21,6 +21,7 @@ class MMNewsRaftRootVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         if revealViewController() != nil{
             
             mmMenuButon.target = self.revealViewController()
@@ -38,23 +39,24 @@ class MMNewsRaftRootVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 20
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MMCardCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MMCardCell
 
         // Configure the cell...
+        cell.cardTextLabel!.text = "Hillary Clinton's presidential campaign team has challenged the FBI over its decision to brief US lawmakers on a new inquiry into the Democratic candidate's email use"
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
