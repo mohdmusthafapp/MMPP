@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MMNewsRaftRootVC: UITableViewController {
+class MMNewsRootVC: UITableViewController {
 
     @IBOutlet weak var mmMenuButon: UIBarButtonItem!
-    
+    var articlesList = [ArticlesModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +20,8 @@ class MMNewsRaftRootVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        articlesList = MMNewsServiceHelper.getArticles()!
+
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         if revealViewController() != nil{
             
@@ -28,6 +29,8 @@ class MMNewsRaftRootVC: UITableViewController {
             mmMenuButon.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         }
+//        CommonActivityVC.showActivityViewer()
+        //self.performSelector(Selector(rightButton("")), withObject: nil, afterDelay: 1500000)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +47,7 @@ class MMNewsRaftRootVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 20
+        return articlesList.count
     }
 
     
@@ -52,11 +55,41 @@ class MMNewsRaftRootVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MMCardCell
 
         // Configure the cell...
-        cell.cardTextLabel!.text = "Hillary Clinton's presidential campaign team has challenged the FBI over its decision to brief US lawmakers on a new inquiry into the Democratic candidate's email use"
+        let articles = articlesList[indexPath.row]
+        
+        cell.source_title!.text = articles.title!.capitalizedString
 
+        cell.source_description!.text = articles.source_description!.capitalizedString
+        self.updateImage(cell,article: articles)
         return cell
     }
  
+    func updateImage(cell:MMCardCell, article:ArticlesModel) -> () {
+    
+        guard article.urlToImage != nil else {
+            return
+        }
+        let imageUrl = NSURL(string: article.urlToImage!)
+        
+        // reset reused cell image to placeholder
+
+        
+        // async image
+        if cell.source_Image == nil {
+            
+            let request: NSURLRequest = NSURLRequest(URL: imageUrl!)
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse?,data: NSData?,error: NSError?) in
+                
+                let image = UIImage(data: data!)
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.source_Image!.image = image
+                    
+                })
+            })
+        }
+
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -104,5 +137,10 @@ class MMNewsRaftRootVC: UITableViewController {
     */
 
     @IBAction func mmMenuButtonAction(sender: AnyObject) {
+    }
+    @IBAction func rightButton(sender: AnyObject) {
+        CommonActivityVC.showActivityViewer()
+//        sleep(10)
+       // CommonActivityVC.hideActivityViewer()
     }
 }

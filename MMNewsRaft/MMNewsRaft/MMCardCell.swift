@@ -11,8 +11,9 @@ import UIKit
 class MMCardCell: UITableViewCell {
 
     
-    @IBOutlet weak var cardImageView: UIImageView?
-    @IBOutlet weak var cardTextLabel: UILabel?
+    @IBOutlet weak var source_Image: UIImageView?
+    @IBOutlet weak var source_description: UILabel?
+    @IBOutlet weak var source_title: UILabel?
     @IBOutlet weak var cardButton: UIButton?
     
     override func awakeFromNib() {

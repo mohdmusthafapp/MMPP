@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MMNewsRaft.xcodeproj">
+      location = "self:/Users/mmusu/Documents/MMPP/MMPP/MMNewsRaft/MMNews.xcodeproj">
    </FileRef>
 </Workspace>

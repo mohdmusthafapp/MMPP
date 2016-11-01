@@ -10,11 +10,13 @@ import UIKit
 
 class MMMenuTVC: UITableViewController {
 
-    var menuSourceList = [MMNewsRaftSourceModel]()
+    var menuSourceList = [SourceListModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuSourceList = MMNewsRaftServiceHelper.getMMNewsRaftSourceList()!
+//       let  mmMenuTVC = MMMenuTVC()
+//        mmMenuTVC.viewDidLoad()
+        menuSourceList = MMNewsServiceHelper.getMMNewsRaftSourceList()!
         let tableHeaderView = MMMenuTopView.instanceFromNib()
         self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: tableHeaderView), animated: true)
     }

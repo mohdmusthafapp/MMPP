@@ -8,7 +8,7 @@
 
 import XCTest
 
-class MMNewsRaftUITests: XCTestCase {
+class MMNewsUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

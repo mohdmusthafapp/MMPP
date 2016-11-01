@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MMNewsRaftSourceModel: NSObject/* NSCopying*/ {
+class SourceListModel: NSObject/* NSCopying*/ {
     
+    var id :String?
     var source_code :String?
     var name :String?
     var source_description :String?
@@ -25,23 +26,9 @@ class MMNewsRaftSourceModel: NSObject/* NSCopying*/ {
     var source_parent :String?
     var sort_by :String?
     
-  override   init() {
-        self.source_code = String()
-        self.name = String()
-        self.source_description = String()
-        self.url = String()
-        self.category = String()
-        self.language = String()
-        self.country = String()
-        self.logo_small = String()
-        self.logo_large = String()
-        self.logo_large = String()
-        self.created_at = String()
-        self.updated_at = String()
-        self.source_parent = String()
-        self.sort_by = String()
-    }
-    func updateValue(dictionary:NSDictionary) {
+    convenience init(dictionary:NSDictionary) {
+        self.init()
+        self.id = dictionary.objectForKey("id") as? String
         self.source_code = dictionary.objectForKey("source_code") as? String
         self.name = dictionary.objectForKey("name") as? String
         self.source_description = dictionary.objectForKey("description") as? String
@@ -50,7 +37,7 @@ class MMNewsRaftSourceModel: NSObject/* NSCopying*/ {
         self.language = dictionary.objectForKey("language") as? String
         self.country = dictionary.objectForKey("country") as? String
         self.logo_small = dictionary.objectForKey("logo_small") as? String
-        self.logo_large = dictionary.objectForKey("logo_large") as? String
+        self.logo_medium = dictionary.objectForKey("logo_medium") as? String
         self.logo_large = dictionary.objectForKey("logo_large") as? String
         self.created_at = dictionary.objectForKey("created_at") as? String
         self.updated_at = dictionary.objectForKey("updated_at") as? String
