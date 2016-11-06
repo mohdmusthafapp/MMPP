@@ -47,15 +47,31 @@ class MMMenuTVC: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MMMenuCell {
-        let cell =  getSecurityAnswerCell()
+        let cell =  getSourceCell()
         let sourceModel = menuSourceList[indexPath.row]
         cell.mmMenuTextLabel!.text = sourceModel.source_code?.capitalizedString
+        self.updateImage(cell, source: sourceModel, indexPath: indexPath)
+
         return cell
     }
  
-    func getSecurityAnswerCell() -> MMMenuCell {
-        let cell =  tableView.dequeueReusableCellWithIdentifier(MMMenuCell.menuCellReuseIdentifier)as! MMMenuCell        
+    func getSourceCell() -> MMMenuCell {
+        let cell =  tableView.dequeueReusableCellWithIdentifier(MMMenuCell.menuCellReuseIdentifier)as! MMMenuCell
         return cell;
+    }
+    
+    func updateImage(cell:MMMenuCell, source:SourceModel, indexPath:NSIndexPath) -> () {
+        
+        let imgURL: NSURL = NSURL(string: source.logo_small!)!
+        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+            if (data != nil){
+                dispatch_async(dispatch_get_main_queue(),{
+                    cell.mmMenuImageView?.image = UIImage(data: data!)
+                })
+            }
+        }).resume()
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

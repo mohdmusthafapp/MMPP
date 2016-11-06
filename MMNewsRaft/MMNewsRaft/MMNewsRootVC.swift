@@ -33,6 +33,10 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
             mmMenuButon.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         }
+        
+        
+        tableView.estimatedRowHeight = 80.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         //self.performSelector(Selector(rightButton("")), withObject: nil, afterDelay: 1500000)
     }
 
@@ -68,13 +72,15 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
     }
  
     func updateImage(cell:MMCardCell, article:ArticlesModel, indexPath:NSIndexPath) -> () {
-
-            
+        
             let imgURL: NSURL = NSURL(string: article.urlToImage_thumbnail!)!
             let request: NSURLRequest = NSURLRequest(URL: imgURL)
             NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
-                 cell.source_Image?.image = UIImage(data: data!)
-               // self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                if (data != nil){
+                    dispatch_async(dispatch_get_main_queue(),{
+                            cell.source_Image?.image = UIImage(data: data!)
+                    })
+                }
             }).resume()
     
     }
@@ -147,7 +153,7 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
     func refreshList(notification: NSNotification) {
         if let myDict = notification.object as? [String:AnyObject] {
             if let sourceModel = myDict["SourceModel"] as? SourceModel {
-            MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/getArticles/"+sourceModel.source_code!
+            MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/getArticles/"+sourceModel.source_code!+"/20"
                 self.getArticleList()
             }
             

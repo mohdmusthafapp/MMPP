@@ -44,4 +44,23 @@ class SourceModel: NSObject/* NSCopying*/ {
         self.source_parent = dictionary.objectForKey("source_parent") as? String
         self.sort_by = dictionary.objectForKey("sort_by") as? String
     }
+    
+    /*
+     "id" : "12",
+     "description" : "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
+     "category" : "general",
+     "source_parent" : "NEWSAPI.ORG",
+     "sort_by" : "top",
+     "active" : "1",
+     "logo_large" : "http:\/\/i.newsapi.org\/abc-news-au-l.png",
+     "created_at" : "2016-10-16 23:01:42",
+     "url" : "http:\/\/www.abc.net.au\/news",
+     "logo_medium" : "http:\/\/i.newsapi.org\/abc-news-au-m.png",
+     "source_code" : "abc-news-au",
+     "language" : "English",
+     "updated_at" : "2016-10-16 23:01:42",
+     "logo_small" : "http:\/\/i.newsapi.org\/abc-news-au-s.png",
+     "country" : "Australia",
+     "name" : "ABC News (AUS)"
+ */
 }
