@@ -32,13 +32,19 @@ class MMServiceCall: NSObject {
     
     func callWebServiceFromURL(mmWebServiceRequest:MMServiceRequest, completion: (resultData:NSData?) -> Void) {
         
-        let requestURL =  NSURL(string: mmWebServiceRequest.requestURL!)
-        do {
-            let responseData = try  NSData(contentsOfURL:requestURL!, options: NSDataReadingOptions())
-            completion(resultData: responseData)
-
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            
+            let requestURL =  NSURL(string: mmWebServiceRequest.requestURL!)
+            do {
+                let responseData = try  NSData(contentsOfURL:requestURL!, options: NSDataReadingOptions())
+                completion(resultData: responseData)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            
         }
+        
+        
     }
 }

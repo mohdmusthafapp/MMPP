@@ -15,43 +15,42 @@ class ArticlesModel: NSObject {
     var author :String?
     var title :String?
     var source_description :String?
-    var url :String?
     var urlToImage :String?
+    var urlToImage_thumbnail :String?
     var publishedAt :String?
     var created_at :String?
     var updated_at :String?
+    var url :String?
     
     convenience init(dictionary:NSDictionary) {
         self.init()
-        let keys = dictionary.allKeys
-        for key in keys {
-            dictionary.objectForKey(keys) as? String
-            
-        }
         self.id = dictionary.objectForKey("id") as? String
         self.source = dictionary.objectForKey("source") as? String
         self.author = dictionary.objectForKey("author") as? String
         self.title = dictionary.objectForKey("title") as? String
-        self.url = dictionary.objectForKey("url") as? String
+        self.urlToImage = dictionary.objectForKey("urlToImage") as? String
+        self.urlToImage_thumbnail = dictionary.objectForKey("urlToImage_thumbnail") as? String
         self.source_description = dictionary.objectForKey("description") as? String
         self.urlToImage = dictionary.objectForKey("urlToImage") as? String
         self.publishedAt = dictionary.objectForKey("publishedAt") as? String
         self.created_at = dictionary.objectForKey("created_at") as? String
         self.updated_at = dictionary.objectForKey("updated_at") as? String
+        self.url = dictionary.objectForKey("url") as? String
+        
     }
     
     /*
-    {
-    "source" : "cnn",
-    "author" : "Jill Martin, CNN",
-    "urlToImage" : "http:\/\/i2.cdn.turner.com\/cnnnext\/dam\/assets\/161030212637-07-world-series-game-5-1030-super-tease.jpg",
-    "id" : 26451,
-    "created_at" : "2016-10-31 04:00:24",
-    "title" : "Chicago Cubs stay alive, win World Series Game 5",
-    "publishedAt" : "2016-10-31T03:45:00Z",
-    "description" : "The Cubs aren't done just yet, sending the World Series back to Cleveland after winning Game 5.",
-    "updated_at" : "2016-10-31 04:00:24",
-    "url" : "http:\/\/edition.cnn.com\/2016\/10\/30\/sport\/world-series-game-5-cleveland-indians-chicago-cubs\/index.html"
-     },*/
+     "id" : "46332",
+     "description" : "The publishers of Collins dictionaries have announced their words of the year for 2016.",
+     "author" : "Michael Deacon",
+     "created_at" : "2016-11-05 01:01:46",
+     "url" : "http:\/\/www.telegraph.co.uk\/opinion\/2016\/11\/05\/forget-brexit-and-hygge-the-word-of-the-year-should-be-cuck\/",
+     "publishedAt" : "2016-11-05T07:01:16Z",
+     "source" : "the-telegraph",
+     "title" : "Forget Brexit and hygge. The word of the year should be cuck",
+     "urlToImage" : "http:\/\/www.telegraph.co.uk\/content\/dam\/opinion\/2016\/11\/04\/112907459_Donald_Trump_cuck_COMMENT-xlarge_trans++qVzuuqpFlyLIwiB6NTmJwfSVWeZ_vEN7c6bHu2jJnT8.jpg",
+     "updated_at" : "2016-11-05 01:01:46",
+     "urlToImage_thumbnail}
+     */
 
 }

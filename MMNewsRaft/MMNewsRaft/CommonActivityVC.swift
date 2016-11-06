@@ -8,35 +8,65 @@
 
 import UIKit
 
+struct CommonActivityVCConstants {
+    
+    static let activityMainViewTag:Int = 1234567890
+    static let activityTitleTag:Int = 1234567891
+    static let activityIndicatorTag:Int = 1234567892
+    static let activityTitleFrame  = CGRectMake(0, 0, 120, 60)
+}
 class CommonActivityVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    class func createActivityMainView() -> UIView? {
+        let appDelegate = UIApplication.sharedApplication().delegate
+        let window:UIWindow = appDelegate!.window!!
+        let activityMainView = UIView.init(frame: window.bounds)
+        activityMainView.backgroundColor = UIColor.clearColor()
+        activityMainView.alpha = 0.9
+        activityMainView.tag = CommonActivityVCConstants.activityMainViewTag;
+        return activityMainView
     }
    
+    class func createActivityTitleView() -> UIView? {
+        let activityTitleView = UIView.init(frame: CommonActivityVCConstants.activityTitleFrame)
+        activityTitleView.tag = CommonActivityVCConstants.activityTitleTag
+        activityTitleView.backgroundColor = UIColor.blackColor()
+        activityTitleView.layer.cornerRadius = 10
+        activityTitleView.layer.borderColor = UIColor.whiteColor().CGColor
+        activityTitleView.layer.borderWidth = 2.0
+        return activityTitleView;
+    }
+    
+    class func createActivityIndicator() -> UIActivityIndicatorView? {
+        let activityIndicator = UIActivityIndicatorView.init(frame: CGRectMake(50,10, 20, 20))
+        activityIndicator.tag = CommonActivityVCConstants.activityIndicatorTag
+        
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
+        activityIndicator.hidesWhenStopped = false
+        return activityIndicator
+    }
     class func showActivityViewer() {
         
         let appDelegate = UIApplication.sharedApplication().delegate
         let window:UIWindow = appDelegate!.window!!
-        let activityView = UIView.init(frame: window.bounds)
-        activityView.backgroundColor = UIColor.clearColor()
-        activityView.alpha = 0.9
-        activityView.tag = 1000009;
-        let smallView = UIView.init(frame: CGRectMake(0, 0, 120, 60))
-        activityView.addSubview(smallView)
-        smallView.center = activityView.center
-        smallView.backgroundColor = UIColor.blackColor()//.init(red: 0.0/255, green: 0.0/255, blue: 50.0/255, alpha: 1)
         
-        smallView.layer.cornerRadius = 10
-        smallView.layer.borderColor = UIColor.whiteColor().CGColor
-        smallView.layer.borderWidth = 2.0
+//        let activityVC = window.viewWithTag(CommonActivityVCConstants.activityIndicatorTag)
+//        guard activityVC != nil else{
+//            return
+//        }
+        let activityMainView = createActivityMainView()
+        let activityTitleView = createActivityTitleView()
+        activityMainView!.addSubview(activityTitleView!)
+        activityTitleView!.center = activityMainView!.center
+        
         let textLabel = UILabel.init(frame: CGRectMake(0,30, 120, 20))
         textLabel.backgroundColor = UIColor.clearColor()
         textLabel.textAlignment = NSTextAlignment.Center
@@ -44,44 +74,23 @@ class CommonActivityVC: UIViewController {
         textLabel.font = textLabel.font.fontWithSize(10)
         textLabel.textColor = UIColor.whiteColor()
         
-        smallView.addSubview(textLabel)
-        let myActivityIndicator = UIActivityIndicatorView.init(frame: CGRectMake(50,10, 20, 20))
-    
-        // Position Activity Indicator in the center of the main view
-       
-        
-        myActivityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
-        //myActivityIndicator.autoresizingMask = [.FlexibleWidth, .FlexibleTopMargin]
-        
-        // myActivityIndicator.center = CGPointMake(CGRectGetMidX(smallView.bounds), CGRectGetMidY(smallView.bounds));
-        
-        // If needed, you can prevent Acivity Indicator from hiding when stopAnimating() is called
-        myActivityIndicator.hidesWhenStopped = false
+        activityTitleView!.addSubview(textLabel)
+        let activityIndicator = createActivityIndicator()
         
         // Start Activity Indicator
-        myActivityIndicator.startAnimating()
-        smallView.addSubview(myActivityIndicator)
-        
-        window.addSubview(activityView)
+        activityIndicator!.startAnimating()
+        activityTitleView!.addSubview(activityIndicator!)
+        window.addSubview(activityMainView!)
         
     }
     class func hideActivityViewer(){
         let appDelegate = UIApplication.sharedApplication().delegate
         let window:UIWindow = appDelegate!.window!!
-        let activityView = window.viewWithTag(1000009)
+        let activityView = window.viewWithTag(CommonActivityVCConstants.activityMainViewTag)
         if (activityView != nil) {
+            let activityINDICATOR = window.viewWithTag(CommonActivityVCConstants.activityIndicatorTag) as! UIActivityIndicatorView
+            activityINDICATOR.stopAnimating()
             activityView?.removeFromSuperview()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -41,7 +41,7 @@
             <objects>
                 <tableViewController id="kva-pe-qVU" customClass="MMNewsRootVC" customModule="MMNews" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="PnY-Hg-DeA">
-                        <rect key="frame" x="0.0" y="44" width="320" height="392"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -102,7 +102,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="kva-pe-qVU" id="3ce-50-Bg6"/>
-                            <outlet property="delegate" destination="kva-pe-qVU" id="s8j-D5-vNJ"/>
+                            <outlet property="delegate" destination="kva-pe-qVU" id="Hbi-kC-JaO"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="P9f-K8-BjT">
@@ -117,14 +117,67 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="mmMenuButon" destination="MQG-7S-6zM" id="P1V-CT-KBS"/>
+                        <segue destination="OXb-4U-Em4" kind="custom" identifier="detailNews" id="Nsw-sQ-LeW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZw-DN-TqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1246" y="-258"/>
+        </scene>
+        <!--News DetailVC-->
+        <scene sceneID="pOB-Nd-AMS">
+            <objects>
+                <viewController storyboardIdentifier="detailNews" id="OXb-4U-Em4" customClass="MMNewsDetailVC" customModule="MMNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wJ8-Ho-36F"/>
+                        <viewControllerLayoutGuide type="bottom" id="SUR-kj-0wA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fF8-tS-0vD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53G-5i-lyJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="OXb-4U-Em4" id="Mmb-qf-267"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="53G-5i-lyJ" secondAttribute="trailing" id="2cF-l9-316"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="top" secondItem="wJ8-Ho-36F" secondAttribute="bottom" id="H2A-8N-Ir5"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="top" secondItem="wJ8-Ho-36F" secondAttribute="bottom" id="RaD-2y-wo7"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="top" secondItem="wJ8-Ho-36F" secondAttribute="bottom" id="RgH-3x-e9e"/>
+                            <constraint firstItem="SUR-kj-0wA" firstAttribute="top" secondItem="53G-5i-lyJ" secondAttribute="bottom" id="TDL-Nl-4iz"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="bottom" secondItem="SUR-kj-0wA" secondAttribute="top" id="UKq-eD-1jy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="53G-5i-lyJ" secondAttribute="trailing" constant="-20" id="WPU-zQ-cve"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="leading" secondItem="fF8-tS-0vD" secondAttribute="leadingMargin" constant="-20" id="XO9-20-9cG"/>
+                            <constraint firstItem="SUR-kj-0wA" firstAttribute="top" secondItem="53G-5i-lyJ" secondAttribute="bottom" id="cLv-PW-Ot2"/>
+                            <constraint firstItem="53G-5i-lyJ" firstAttribute="leading" secondItem="fF8-tS-0vD" secondAttribute="leading" id="zJk-GR-qAK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WPU-zQ-cve"/>
+                                <exclude reference="XO9-20-9cG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                    <connections>
+                        <outlet property="webView" destination="53G-5i-lyJ" id="jfj-vG-O4o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YeH-6Y-Ah0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728" y="-258"/>
         </scene>
         <!--MenuTVC-->
         <scene sceneID="F97-l5-n3I">

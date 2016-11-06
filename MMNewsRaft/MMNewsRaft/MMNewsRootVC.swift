@@ -8,28 +8,31 @@
 
 import UIKit
 
-class MMNewsRootVC: UITableViewController {
+class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
 
     @IBOutlet weak var mmMenuButon: UIBarButtonItem!
+    
     var articlesList = [ArticlesModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        articlesList = MMNewsServiceHelper.getArticles()!
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MMNewsRootVC.refreshList(_:)), name: "refresh", object: nil)
+        
+        if !MMCommonModel.doesRootViewLoadFirst() {
+            MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/todays/25"
+            self.getArticleList()
+        }
+        
+        
 
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         if revealViewController() != nil{
             
             mmMenuButon.target = self.revealViewController()
+            
             mmMenuButon.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
         }
-//        CommonActivityVC.showActivityViewer()
         //self.performSelector(Selector(rightButton("")), withObject: nil, afterDelay: 1500000)
     }
 
@@ -42,12 +45,12 @@ class MMNewsRootVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return articlesList.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return articlesList.count
+        return 1
     }
 
     
@@ -55,42 +58,38 @@ class MMNewsRootVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! MMCardCell
 
         // Configure the cell...
-        let articles = articlesList[indexPath.row]
+        let articles = articlesList[indexPath.section]
         
         cell.source_title!.text = articles.title!.capitalizedString
 
         cell.source_description!.text = articles.source_description!.capitalizedString
-        self.updateImage(cell,article: articles)
+        self.updateImage(cell,article: articles,indexPath: indexPath)
         return cell
     }
  
-    func updateImage(cell:MMCardCell, article:ArticlesModel) -> () {
+    func updateImage(cell:MMCardCell, article:ArticlesModel, indexPath:NSIndexPath) -> () {
+
+            
+            let imgURL: NSURL = NSURL(string: article.urlToImage_thumbnail!)!
+            let request: NSURLRequest = NSURLRequest(URL: imgURL)
+            NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+                 cell.source_Image?.image = UIImage(data: data!)
+               // self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            }).resume()
     
-        guard article.urlToImage != nil else {
-            return
-        }
-        let imageUrl = NSURL(string: article.urlToImage!)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
         
-        // reset reused cell image to placeholder
-
-        
-        // async image
-        if cell.source_Image == nil {
-            
-            let request: NSURLRequest = NSURLRequest(URL: imageUrl!)
-            
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response: NSURLResponse?,data: NSData?,error: NSError?) in
-                
-                let image = UIImage(data: data!)
-                dispatch_async(dispatch_get_main_queue(), {
-                    cell.source_Image!.image = image
-                    
-                })
-            })
-        }
-
+    let mmNewsDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailNews") as! MMNewsDetailVC
+        let articles = articlesList[indexPath.section]
+        mmNewsDetailVC.articlesModel = articles
+        self.navigationController?.pushViewController(mmNewsDetailVC, animated: true)
     }
 
+
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -142,5 +141,32 @@ class MMNewsRootVC: UITableViewController {
         CommonActivityVC.showActivityViewer()
 //        sleep(10)
        // CommonActivityVC.hideActivityViewer()
+    }
+    
+    
+    func refreshList(notification: NSNotification) {
+        if let myDict = notification.object as? [String:AnyObject] {
+            if let sourceModel = myDict["SourceModel"] as? SourceModel {
+            MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/getArticles/"+sourceModel.source_code!
+                self.getArticleList()
+            }
+            
+        }
+    }
+    
+    
+    func updatedNewsWithSelectedNews(sourceModel:SourceModel)
+    {
+       print("hjhjjsjs")
+    }
+    
+    func getArticleList() {
+        CommonActivityVC.showActivityViewer()
+        MMNewsServiceHelper.getArticles({ (sourceList, error) in
+            MMCommonModel.UpdateRootViewLoadFirst(true)
+            CommonActivityVC.hideActivityViewer()
+            self.articlesList = MMCommonModel.sharedInstance.getArtices()!
+            self.tableView .reloadData()
+        })
     }
 }

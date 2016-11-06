@@ -10,49 +10,74 @@ import UIKit
 
 class MMNewsServiceHelper: NSObject {
     
-    class func getMMNewsRaftSourceList() -> [SourceListModel]? {
+    class func getMMNewsRaftSourceList(completion: (sourceModelList:[SourceModel]?,error:NSError?) -> Void) {
       
         let mmServiceRequest = MMServiceRequest.init()
         mmServiceRequest.requestURL = "http://apiservices.newsraft.com/sources"
         let serviceCallObj = MMServiceCall()
-        var sourceList = [SourceListModel]()
+        
         serviceCallObj.callWebServiceFromURL(mmServiceRequest) { (resultData) -> Void in
             do {
+                let commomInstance = MMCommonModel.sharedInstance
+//                var sourceList = [SourceModel]()
                 if let jsonResult = try NSJSONSerialization.JSONObjectWithData(resultData!, options: []) as? NSArray {
                     for dictionary in jsonResult{
                         
-                       let sourceModel = SourceListModel.init(dictionary: dictionary as! NSDictionary)
-                        sourceList.append(sourceModel)
+                       let sourceModel = SourceModel.init(dictionary: dictionary as! NSDictionary)
+                        
+                        commomInstance.sourceList.append(sourceModel)
                     }
-                    print("ASynchronous\(jsonResult)")
                 }
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    completion(sourceModelList: nil, error: nil)
+                })
             } catch let error as NSError {
-                print(error.localizedDescription)
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    completion(sourceModelList: nil, error: error)
+                    
+                })
             }
         }
-        return sourceList;
     }
     
-    class func getArticles() -> [ArticlesModel]? {
+    class func getArticles(completion: (articles:[ArticlesModel]?,error:NSError?) -> Void) {
         
         let mmServiceRequest = MMServiceRequest.init()
-        mmServiceRequest.requestURL = "http://apiservices.newsraft.com/todays/25"
+        mmServiceRequest.requestURL = MMCommonModel.sharedInstance.articleUrl
         let serviceCallObj = MMServiceCall()
-        var sourceList = [ArticlesModel]()
+        
         serviceCallObj.callWebServiceFromURL(mmServiceRequest) { (resultData) -> Void in
             do {
+                let commomInstance = MMCommonModel.sharedInstance
+                
                 if let jsonResult = try NSJSONSerialization.JSONObjectWithData(resultData!, options: []) as? NSArray {
                     for dictionary in jsonResult{
                         
-                        let sourceModel = ArticlesModel.init(dictionary: dictionary as! NSDictionary)
-                        sourceList.append(sourceModel)
+                        let article = ArticlesModel.init(dictionary: dictionary as! NSDictionary)
+                        commomInstance.articesList.append(article)
                     }
-                    print("ASynchronous\(jsonResult)")
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(),{
+                        
+                         completion(articles: nil, error: nil)
+                        
+                    })
+                   
                 }
             } catch let error as NSError {
-                print(error.localizedDescription)
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                   completion(articles: nil, error: error)
+                    
+                })
+                
             }
         }
-        return sourceList;
     }
+    
+    
 }

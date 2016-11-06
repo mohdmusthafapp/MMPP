@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SourceListModel: NSObject/* NSCopying*/ {
+class SourceModel: NSObject/* NSCopying*/ {
     
     var id :String?
     var source_code :String?

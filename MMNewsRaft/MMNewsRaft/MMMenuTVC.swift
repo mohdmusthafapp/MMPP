@@ -7,16 +7,23 @@
 //
 
 import UIKit
+protocol MMMenuTVCDelegate {
+    
+    func updatedNewsWithSelectedNews(sourceModel:SourceModel)
+}
 
 class MMMenuTVC: UITableViewController {
 
-    var menuSourceList = [SourceListModel]()
+    var delegate:MMMenuTVCDelegate?
+    var menuSourceList = [SourceModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//       let  mmMenuTVC = MMMenuTVC()
-//        mmMenuTVC.viewDidLoad()
-        menuSourceList = MMNewsServiceHelper.getMMNewsRaftSourceList()!
+
+         MMNewsServiceHelper.getMMNewsRaftSourceList({ (sourceModelList, error) in
+            self.menuSourceList = MMCommonModel.sharedInstance.getSource()!
+            self.tableView.reloadData()
+        })
         let tableHeaderView = MMMenuTopView.instanceFromNib()
         self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: tableHeaderView), animated: true)
     }
@@ -49,6 +56,15 @@ class MMMenuTVC: UITableViewController {
     func getSecurityAnswerCell() -> MMMenuCell {
         let cell =  tableView.dequeueReusableCellWithIdentifier(MMMenuCell.menuCellReuseIdentifier)as! MMMenuCell        
         return cell;
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let sourceModel = menuSourceList[indexPath.row]
+        
+        let myDict: [String:AnyObject] = [ "SourceModel": sourceModel]
+        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: myDict)
+//        delegate?.updatedNewsWithSelectedNews(sourceModel)
     }
 
     /*
