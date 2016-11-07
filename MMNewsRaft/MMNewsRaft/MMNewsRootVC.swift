@@ -13,15 +13,17 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
     @IBOutlet weak var mmMenuButon: UIBarButtonItem!
     
     var articlesList = [ArticlesModel]()
+    var articleUrl:String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MMNewsRootVC.refreshList(_:)), name: "refresh", object: nil)
         
-        if !MMCommonModel.doesRootViewLoadFirst() {
-            MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/todays/25"
-            self.getArticleList()
-        }
+//        if articleUrl != MMCommonModel.sharedInstance.articleUrl {
+        
+             self.getArticleList()
+//        }
+
         
         
 
@@ -153,6 +155,8 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
     func refreshList(notification: NSNotification) {
         if let myDict = notification.object as? [String:AnyObject] {
             if let sourceModel = myDict["SourceModel"] as? SourceModel {
+                
+//                http://apiservices.newsraft.com/todays?limit=25&offset=2&language=english
             MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/getArticles/"+sourceModel.source_code!+"/20"
                 self.getArticleList()
             }
@@ -163,7 +167,7 @@ class MMNewsRootVC: UITableViewController, MMMenuTVCDelegate {
     
     func updatedNewsWithSelectedNews(sourceModel:SourceModel)
     {
-       print("hjhjjsjs")
+       
     }
     
     func getArticleList() {

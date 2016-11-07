@@ -22,6 +22,7 @@ class MMCommonModel: NSObject {
     override init() {
         self.articesList = [ArticlesModel]()
         self.sourceList = [SourceModel]()
+        self.selcetedSource = String()
     }
     class var sharedInstance: MMCommonModel {
         dispatch_once(&Static.onceToken) {

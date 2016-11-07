@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         MMCommonModel.UpdateRootViewLoadFirst(false)
+        
+//        http://apiservices.newsraft.com/todays?limit=25&offset=2&language=english
+        MMCommonModel.sharedInstance.articleUrl = "http://apiservices.newsraft.com/todays?limit=25&offset=2&language=english"
         // Override point for customization after application launch.
         return true
     }

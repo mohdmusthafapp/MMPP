@@ -110,14 +110,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="P9f-K8-BjT">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Ad4-hd-S4F"/>
                         <barButtonItem key="leftBarButtonItem" image="MMMenuIcon" id="MQG-7S-6zM">
                             <connections>
                                 <action selector="mmMenuButtonAction:" destination="kva-pe-qVU" id="MmQ-cI-7PH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="0Ql-AI-kWk">
-                            <connections>
-                                <action selector="rightButton:" destination="kva-pe-qVU" id="IQn-DK-9ye"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -196,7 +192,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TrV-Z5-eEF" id="xct-7Q-5nZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmt-AU-4m7">
@@ -259,7 +255,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.050980392156862744" green="0.23921568627450979" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.99215686270000003" green="0.35686274509999999" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -284,7 +280,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="v40-PU-hk7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.050980392159999999" green="0.23921568630000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.99215686270000003" green="0.35686274509999999" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
